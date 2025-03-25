@@ -330,7 +330,7 @@ const Hero = () => {
           </p>
           
           <div className="mt-10 flex flex-row gap-3 justify-center w-full">
-            <RainbowButton route="/" className="hover:text-xl transition-all duration-500 bg-blue-700" color="blue">
+            <RainbowButton route="https://calendly.com/carfilio/30min" className="hover:text-xl transition-all duration-500 bg-blue-700" color="blue">
               Book a demo
             </RainbowButton>
             <WhiteButton route="/">
