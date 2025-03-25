@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils'
 
 const Hero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const videoRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -242,6 +243,19 @@ const Hero = () => {
     }
   }, [])
 
+  const handleLearnMoreClick = () => {
+    const video = videoRef.current;
+    if (video) {
+      const requestFullScreen = video.requestFullscreen ||
+        (video as HTMLIFrameElement & { webkitRequestFullscreen?: () => void }).webkitRequestFullscreen ||
+        (video as HTMLIFrameElement & { mozRequestFullScreen?: () => void }).mozRequestFullScreen ||
+        (video as HTMLIFrameElement & { msRequestFullscreen?: () => void }).msRequestFullscreen;
+      if (requestFullScreen) {
+        requestFullScreen.call(video);
+      }
+    }
+  };
+
   return (
     <div className="relative w-full min-h-[90vh] overflow-hidden bg-white">
       {/* SVG Grid Background - Two layered grids */}
@@ -333,7 +347,7 @@ const Hero = () => {
             <RainbowButton route="https://calendly.com/carfilio/30min" className="hover:text-xl transition-all duration-500 bg-blue-700" color="blue">
               Book a demo
             </RainbowButton>
-            <WhiteButton route="/">
+            <WhiteButton onClick={handleLearnMoreClick}>
               Learn More
             </WhiteButton>
           </div>
@@ -368,6 +382,7 @@ const Hero = () => {
                 <div className="relative pb-[56.25%] h-0">
                 <div className="absolute  bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 blur-[60px] rounded-xl -z-10 opacity-100"></div>
                   <iframe 
+                    ref={videoRef}
                     className="absolute top-0 left-0 w-full h-full"
                     src="https://www.youtube.com/embed/videoseries?list=UU3AIxGVVCmOSxy9vQFQ_ffg" 
                     title="Carfilio Demo Video"

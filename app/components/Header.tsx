@@ -56,7 +56,7 @@ const Header = () => {
             <Link href="#meet-the-team" onClick={(e) => handleHashLinkClick(e, '#meet-the-team')} className="text-gray-600 hover:text-black text-2xl">Team</Link>
             <Link href="#reviews" onClick={(e) => handleHashLinkClick(e, '#reviews')} className="text-gray-600 hover:text-black text-2xl">Reviews</Link>
             <div className="pt-4 flex flex-row gap-4" onClick={handleMenuClose}>
-              <InteractiveHoverButton text="Get Started" color="blue" route="/contact"/>
+              <InteractiveHoverButton text="Get A Demo" color="blue" route="https://calendly.com/carfilio/30min"/>
               <InteractiveHoverButton text="Login" color="dark-blue" route="https://app.carfilio.com"/>
             </div>
           </div>

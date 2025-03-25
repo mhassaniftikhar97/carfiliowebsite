@@ -32,7 +32,7 @@ const LogoSlider = () => {
           <div key={index} className="mx-8">
             <Image
               src={logo}
-              alt={`Partner logo ${index + 1}`}
+              alt={`Partner logo ${index}`}
               width={90}
               height={45}
               className="h-9 w-auto object-contain"
