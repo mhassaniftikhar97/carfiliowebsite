@@ -70,7 +70,9 @@ const Header = () => {
       >
         <div className="flex items-center justify-center py-5">
           <div className="flex w-[90%] xl:w-[65%] flex:row border-black/5 border-[1.5px] shadow-xl rounded-full justify-between py-3 px-4 items-center backdrop-blur-md bg-white/70">
+            <Link href="/" onClick={handleMenuClose}>
             <Image src={logo} height={30} alt="logo" />
+            </Link>
             <div className="hidden xl:flex flex-row gap-12">
               <Link href="/" className="text-gray-400 hover:text-black font-medium text-lg">About</Link>
               <Link href="#how-it-works" onClick={(e) => handleHashLinkClick(e, '#how-it-works')} className="text-gray-400 hover:text-black text-lg">How It Works</Link>
