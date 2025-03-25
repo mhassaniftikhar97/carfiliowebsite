@@ -43,8 +43,8 @@ const Footer = () => {
               <h2 className="text-2xl font-medium mb-3">Reimagining the future of<br />affiliate marketing</h2>
               <div className="flex gap-4 justify-end">
                 <InteractiveHoverButton 
-                  route="/contact" 
-                  text="Sign Up" 
+                  route="https://calendly.com/carfilio/30min" 
+                  text="Get A Demo" 
                   color="blue"
                 />
                 <InteractiveHoverButton text="Login" color="dark-blue" route="https://app.carfilio.com"/>
