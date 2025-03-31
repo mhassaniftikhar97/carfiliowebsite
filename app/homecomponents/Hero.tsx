@@ -384,7 +384,7 @@ const Hero = () => {
                   <iframe 
                     ref={videoRef}
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/videoseries?list=UU3AIxGVVCmOSxy9vQFQ_ffg" 
+                    src="https://youtu.be/9PWOakf2ZU8" 
                     title="Carfilio Demo Video"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
