@@ -17,7 +17,7 @@ const reviews = [
   },
   {
     name: "Siller Motors",
-    username: "sillermotors",
+    username: "@sillermotors",
     body: "We closed a $40K SUV deal from a customer referral—no ad budget, no chasing. Carfilio paid for itself in one day",
     img: "https://avatar.vercel.sh/john",
   },
@@ -35,7 +35,7 @@ const reviews = [
   },
   {
     name: "Siller Motors",
-    username: "sillermotors",
+    username: "@sillermotors",
     body: "We closed a $40K SUV deal from a customer referral—no ad budget, no chasing. Carfilio paid for itself in one day",
     img: "https://avatar.vercel.sh/john",
   },
@@ -53,7 +53,7 @@ const reviews = [
   },
   {
     name: "Siller Motors",
-    username: "sillermotors",
+    username: "@sillermotors",
     body: "We closed a $40K SUV deal from a customer referral—no ad budget, no chasing. Carfilio paid for itself in one day",
     img: "https://avatar.vercel.sh/john",
   },
