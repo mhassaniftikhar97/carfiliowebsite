@@ -30,7 +30,8 @@ module.exports = {
   			'marquee-vertical-reverse': 'marquee-vertical-reverse var(--duration) linear infinite',
   			'background-position-spin': 'background-position-spin 3000ms infinite alternate',
   			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite',
-  			grid: 'grid 15s linear infinite'
+  			grid: 'grid 15s linear infinite',
+  			shine: 'shine var(--duration) infinite linear'
   		},
   		keyframes: {
   			marquee: {
@@ -95,6 +96,17 @@ module.exports = {
   				},
   				'100%': {
   					transform: 'translateY(0)'
+  				}
+  			},
+  			shine: {
+  				'0%': {
+  					'background-position': '0% 0%'
+  				},
+  				'50%': {
+  					'background-position': '100% 100%'
+  				},
+  				to: {
+  					'background-position': '0% 0%'
   				}
   			}
   		},

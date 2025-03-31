@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./components/Header";
 import Hero from "./homecomponents/Hero";
 
-import GradientSection from "./homecomponents/GradientSection";
+
 
 import MeetTeam from "./homecomponents/MeetTeam";
 
@@ -16,6 +16,7 @@ import { Separator } from "@/components/ui/separator";
 import BentoSection from "./homecomponents/BentoSection";
 import { MarqueeDemo } from "./components/MarqueeDemo";
 import ContactContainer from "./components/ContactContainer";
+import WhyCarfilioSection from "./homecomponents/WhyCarfilioSection";
 
 export default function Home() {
   return (
@@ -23,13 +24,13 @@ export default function Home() {
       <Header />
       <Hero />
       <MarqueeComponent />
-      <div className="w-full pb-24 flex items-center justify-center text-center">
+      <div className="w-full pb-12 flex items-center justify-center text-center">
         <Separator className="w-[90%]"/>
       </div>
       <div id="how-it-works">
       <HowContainer />
       </div>
-      <GradientSection />
+     <WhyCarfilioSection />
       <div>
         <div className="bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90%">
           <BentoSection />

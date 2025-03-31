@@ -10,7 +10,7 @@ const HowContainer = () => {
           <h3 className="text-5xl text-black font-medium tracking-tighter">How It Works - A Quick Overview</h3>
           <p className="text-xl text-black tracking-tighter mt-3">Transforming every keychain tap into a sales opportunity, Carfilio automates customer registration, lead tracking, and affiliate referrals. Stay connected with real-time notifications and a seamless sales dashboard. </p>
         </div>
-        <div className="relative w-full h-[300px] xl:h-[1000px]">
+        <div className="relative w-full h-[300px] xl:h-[800px]">
           <div 
             className="w-full h-full"
             style={{
