@@ -3,7 +3,7 @@ import React from 'react'
 
 const MarqueeComponent = () => {
   return (
-    <div className="flex flex-col gap-5 pt-36 pb-12">
+    <div className="flex flex-col gap-5 pt-16 xl:pt-36 pb-12">
         <h5 className="text-center xl:text-5xl font-semibold tracking-tighter text-black">Trusted by Automotive Dealerships</h5>
         <LogoSlider />
     </div>

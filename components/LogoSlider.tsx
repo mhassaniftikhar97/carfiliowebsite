@@ -19,7 +19,7 @@ const LogoSlider = () => {
   ];
 
   return (
-    <div className="w-full py-8 overflow-hidden bg-white">
+    <div className="w-full py-3 xl:py-8 overflow-hidden bg-white">
       <Marquee
         speed={40}
         gradient={false}
@@ -35,7 +35,7 @@ const LogoSlider = () => {
               alt={`Partner logo ${index}`}
               width={90}
               height={45}
-              className="h-9 w-auto object-contain"
+              className="h-7 xl:h-9 w-auto object-contain"
             />
           </div>
         ))}
