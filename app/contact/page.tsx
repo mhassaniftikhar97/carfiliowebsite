@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react'
 import Header from '../components/Header'
+import TermsConditionsDocument from '../components/TermsConditionsDocument'
 
 const Page = () => {
   const [step, setStep] = useState(1)
+  const [showTerms, setShowTerms] = useState(false)
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -38,9 +40,21 @@ const Page = () => {
     setStep(step - 1)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    
+    setShowTerms(true)
+  }
+
+  const handleAcceptTerms = () => {
+    setShowTerms(false)
+    submitForm()
+  }
+
+  const handleRejectTerms = () => {
+    setShowTerms(false)
+  }
+
+  const submitForm = () => {
     // Create URLSearchParams instead of FormData
     const params = new URLSearchParams()
     params.append('entry.210890285', formData.firstName)
@@ -61,14 +75,13 @@ const Page = () => {
     // Submit the form data
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSc3vGoTkPOVE9MYtTy6Jr8o3aC2TMicb_06zyQDvAbGKRE1qA/formResponse?', {
       method: 'POST',
-      mode: 'no-cors', // This is important for CORS
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: params.toString()
     })
     .then(() => {
-      // Since we're using no-cors, we won't get a response
       alert('Form submitted successfully!')
       // Reset form
       setFormData({
@@ -101,7 +114,7 @@ const Page = () => {
     <div className="max-w-2xl mx-auto p-4">
       <h1 className="text-3xl font-bold text-center mb-4">Get Started</h1>
       <p className="text-center mb-8">Fill out the form below to get started with Carfilio!</p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleFormSubmit}>
         {step === 1 && (
           <>
             <div className="mb-4">
@@ -273,6 +286,12 @@ const Page = () => {
           </>
         )}
       </form>
+      {showTerms && (
+        <TermsConditionsDocument
+          onAccept={handleAcceptTerms}
+          onReject={handleRejectTerms}
+        />
+      )}
     </div>
     </>
   )
