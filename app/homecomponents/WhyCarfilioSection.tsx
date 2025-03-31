@@ -12,7 +12,7 @@ const features = [
   {
     title: "A Keychain That Sells for You",
     description:
-      "Forget business cards—Carfilio’s NFC keychain turns every customer interaction into a lead. One tap, instant connection.",
+      "Forget business cards—Carfilio’s keychain turns every customer interaction into a lead. One tap, instant connection.",
     icon: Contact,
   },
   {
@@ -53,7 +53,7 @@ const WhyCarfilioSection = () => {
       <h3 className="text-5xl">Why Carfilio?</h3>
       <h5 className="text-xl text-center">
         Carfilio isn&apos;t just another CRM—it&apos;s a lead-generation powerhouse designed for dealerships. 
-        From NFC-powered connections to effortless referrals, we make customer engagement work for you.
+        From keychain-powered connections to effortless referrals, we make customer engagement work for you.
       </h5>
 
       {/* Feature Grid */}
