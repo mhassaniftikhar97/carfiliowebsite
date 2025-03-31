@@ -4,41 +4,24 @@ import Image from 'next/image';
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    name: "Syosset Motors",
+    username: "@syossetmotors",
+    body: "Carfilio is a total game-changer. We've already closed 11 referral deals in our first 60 days, and they are the easiest sales we have ever made ",
     img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    name: "Hillside Leasing",
+    username: "@hillsideleasing",
+    body: "We cut our ad spend by 40% last month because Carfilio started bringing in organic leads that actually converted",
     img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Siller Motors",
+    username: "sillermotors",
+    body: "We closed a $40K SUV deal from a customer referral—no ad budget, no chasing. Carfilio paid for itself in one day",
     img: "https://avatar.vercel.sh/john",
   },
-  {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
-  },
-  {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
-  },
-  {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
-  },
+ 
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
