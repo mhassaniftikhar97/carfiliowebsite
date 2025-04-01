@@ -12,7 +12,7 @@ const LogoSlider = () => {
     '/assets/nissan.png',
     '/assets/mazda.png',
     '/assets/ford.png',
-    '/assets/subaru.svg',
+    '/assets/subaru.png',
     '/assets/hyundai.svg',
     '/assets/lexus.svg',
     '/assets/nissan.svg',

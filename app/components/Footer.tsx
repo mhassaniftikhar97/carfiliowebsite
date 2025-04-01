@@ -28,11 +28,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div>
                 <p className="text-gray-500 mb-1">Email</p>
-                <a href="mailto:hello@carfilio.com" className="text-gray-900">hello@carfilio.com</a>
+                <a href="mailto:info@carfilio.com" className="text-gray-900">info@carfilio.com</a>
               </div>
               <div>
                 <p className="text-gray-500 mb-1">Phone Number</p>
-                <a href="tel:+12018953801" className="text-gray-900">+1 (201) 895-3801</a>
+                <a href="tel: +1 (212) 281 3007" className="text-gray-900">+1 (212) 281 3007</a>
               </div>
             </div>
           </div>
