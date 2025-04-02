@@ -37,7 +37,7 @@ const ContactContainer = () => {
         </div>
         <div className="mt-2 text-sm text-white text-center md:text-right">
           We care about your data in our{' '}
-          <Link href="/privacy" className="underline hover:text-[#1E1B4B]">
+          <Link href="/privacy-policy" className="underline hover:text-[#1E1B4B]">
             privacy policy
           </Link>
         </div>

@@ -2,26 +2,31 @@
 
 import React, { useState } from 'react'
 import Header from '../components/Header'
-import TermsConditionsDocument from '../components/TermsConditionsDocument'
+import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button'
+import { WhiteButton } from '@/components/magicui/white-button'
+import { RainbowButton } from '@/components/magicui/rainbow-button'
+import Link from 'next/link'
 
 const Page = () => {
   const [step, setStep] = useState(1)
-  const [showTerms, setShowTerms] = useState(false)
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     dealerName: '',
-    streetAddress: '',
+    dealerAddress: '',
     city: '',
     state: '',
     zipCode: '',
     dealerWebsite: '',
     leadsEmail: '',
     creditFinanceUrl: '',
+    dealerTaxId: '',
+    dealerLicense: '',
+    dealerLogo: '',
     dealerContactFirstName: '',
     dealerContactLastName: '',
     dealerContactPhone: '',
-    dealerContactEmail: ''
+    dealerContactEmail: '',
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,267 +38,369 @@ const Page = () => {
   }
 
   const handleNext = () => {
-    setStep(step + 1)
+    setStep(2)
   }
 
   const handlePrevious = () => {
-    setStep(step - 1)
+    setStep(1)
   }
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setShowTerms(true)
-  }
-
-  const handleAcceptTerms = () => {
-    setShowTerms(false)
     submitForm()
   }
 
-  const handleRejectTerms = () => {
-    setShowTerms(false)
-  }
+  const submitForm = async () => {
+    try {
+      const params = new URLSearchParams()
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value) {
+          params.append(key, value)
+        }
+      })
 
-  const submitForm = () => {
-    // Create URLSearchParams instead of FormData
-    const params = new URLSearchParams()
-    params.append('entry.210890285', formData.firstName)
-    params.append('entry.949082674', formData.lastName)
-    params.append('entry.1646445567', formData.dealerName)
-    params.append('entry.717705251', formData.streetAddress)
-    params.append('entry.1985920442', formData.city)
-    params.append('entry.1206533804', formData.state)
-    params.append('entry.1956419970', formData.zipCode)
-    params.append('entry.1761899044', formData.dealerWebsite)
-    params.append('entry.1331474145', formData.leadsEmail)
-    params.append('entry.606810967', formData.creditFinanceUrl)
-    params.append('entry.713110998', formData.dealerContactFirstName)
-    params.append('entry.879856888', formData.dealerContactLastName)
-    params.append('entry.520870026', formData.dealerContactPhone)
-    params.append('entry.1146624318', formData.dealerContactEmail)
+      const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSc3vGoTkPOVE9MYtTy6Jr8o3aC2TMicb_06zyQDvAbGKRE1qA/formResponse?' + params.toString(), {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      })
 
-    // Submit the form data
-    fetch('https://docs.google.com/forms/d/e/1FAIpQLSc3vGoTkPOVE9MYtTy6Jr8o3aC2TMicb_06zyQDvAbGKRE1qA/formResponse?', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params.toString()
-    })
-    .then(() => {
+      // Since we're using no-cors mode, we can't check the response
       alert('Form submitted successfully!')
-      // Reset form
       setFormData({
         firstName: '',
         lastName: '',
         dealerName: '',
-        streetAddress: '',
+        dealerAddress: '',
         city: '',
         state: '',
         zipCode: '',
         dealerWebsite: '',
         leadsEmail: '',
         creditFinanceUrl: '',
+        dealerTaxId: '',
+        dealerLicense: '',
+        dealerLogo: '',
         dealerContactFirstName: '',
         dealerContactLastName: '',
         dealerContactPhone: '',
-        dealerContactEmail: ''
+        dealerContactEmail: '',
       })
       setStep(1)
-    })
-    .catch(error => {
-      console.error('Error:', error)
-      alert('Error submitting form. Please try again.')
-    })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('There was an error submitting the form. Please try again.')
+    }
   }
 
   return (
-    <>
-    <Header />
-    <div className="max-w-2xl mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center mb-4">Get Started</h1>
-      <p className="text-center mb-8">Fill out the form below to get started with Carfilio!</p>
-      <form onSubmit={handleFormSubmit}>
-        {step === 1 && (
-          <>
-            <div className="mb-4">
-              <label className="block text-gray-700">Name</label>
-              <div className="flex">
-                <input 
-                  type="text" 
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  placeholder="First" 
-                  className="border rounded w-full py-2 px-3 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                />
-                <input 
-                  type="text" 
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                  placeholder="Last" 
-                  className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                />
-              </div>
-            </div>
-            <h2 className="text-xl font-semibold mb-2">Dealer Information</h2>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Name <span className="text-red-500">*</span></label>
-              <input 
-                type="text" 
-                name="dealerName"
-                value={formData.dealerName}
-                onChange={handleInputChange}
-                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Address <span className="text-red-500">*</span></label>
-              <input 
-                type="text" 
-                name="streetAddress"
-                value={formData.streetAddress}
-                onChange={handleInputChange}
-                placeholder="Street Address" 
-                className="border rounded w-full py-2 px-3 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              />
-              <div className="flex">
-                <input 
-                  type="text" 
-                  name="city"
-                  value={formData.city}
-                  onChange={handleInputChange}
-                  placeholder="City" 
-                  className="border rounded w-full py-2 px-3 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                />
-                <input 
-                  type="text" 
-                  name="state"
-                  value={formData.state}
-                  onChange={handleInputChange}
-                  placeholder="State" 
-                  className="border rounded w-full py-2 px-3 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                />
-                <input 
-                  type="text" 
-                  name="zipCode"
-                  value={formData.zipCode}
-                  onChange={handleInputChange}
-                  placeholder="ZIP Code" 
-                  className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                />
-              </div>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Website <span className="text-red-500">*</span></label>
-              <input 
-                type="url" 
-                name="dealerWebsite"
-                value={formData.dealerWebsite}
-                onChange={handleInputChange}
-                placeholder="https://" 
-                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Leads Email address <span className="text-red-500">*</span></label>
-              <input 
-                type="email" 
-                name="leadsEmail"
-                value={formData.leadsEmail}
-                onChange={handleInputChange}
-                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Credit/Finance URL</label>
-              <input 
-                type="url" 
-                name="creditFinanceUrl"
-                value={formData.creditFinanceUrl}
-                onChange={handleInputChange}
-                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Tax ID <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer License <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Logo <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
-            <button type="button" onClick={handleNext} className="bg-blue-500 text-white py-2 px-4 rounded">Next</button>
-          </>
-        )}
+    <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h1>
+          <p className="text-lg text-gray-600">
+            Fill out the form below to get started with Carfilio&apos;s referral marketing software.
+          </p>
+        </div>
 
-        {step === 2 && (
-          <>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Contact <span className="text-red-500">*</span></label>
-              <div className="flex">
-                <input 
-                  type="text" 
-                  name="dealerContactFirstName"
-                  value={formData.dealerContactFirstName}
-                  onChange={handleInputChange}
-                  placeholder="First" 
-                  className="border rounded w-full py-2 px-3 mr-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                />
-                <input 
-                  type="text" 
-                  name="dealerContactLastName"
-                  value={formData.dealerContactLastName}
-                  onChange={handleInputChange}
-                  placeholder="Last" 
-                  className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+        <form onSubmit={handleFormSubmit} className="space-y-8">
+          {step === 1 ? (
+            <>
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="entry.210890285"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="entry.949082674"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerName" className="block text-sm font-medium text-gray-700">
+                    Dealer Name
+                  </label>
+                  <input
+                    type="text"
+                    id="dealerName"
+                    name="entry.1646445567"
+                    value={formData.dealerName}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerAddress" className="block text-sm font-medium text-gray-700">
+                    Dealer Address
+                  </label>
+                  <input
+                    type="text"
+                    id="dealerAddress"
+                    name="entry.717705251"
+                    value={formData.dealerAddress}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                  <div>
+                    <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                      City
+                    </label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="entry.1985920442"
+                      value={formData.city}
+                      onChange={handleInputChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="state" className="block text-sm font-medium text-gray-700">
+                      State
+                    </label>
+                    <input
+                      type="text"
+                      id="state"
+                      name="entry.1206533804"
+                      value={formData.state}
+                      onChange={handleInputChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700">
+                      ZIP Code
+                    </label>
+                    <input
+                      type="text"
+                      id="zipCode"
+                      name="entry.1956419970"
+                      value={formData.zipCode}
+                      onChange={handleInputChange}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="dealerWebsite" className="block text-sm font-medium text-gray-700">
+                    Dealer Website
+                  </label>
+                  <input
+                    type="url"
+                    id="dealerWebsite"
+                    name="entry.1761899044"
+                    value={formData.dealerWebsite}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="leadsEmail" className="block text-sm font-medium text-gray-700">
+                    Leads Email address
+                  </label>
+                  <input
+                    type="email"
+                    id="leadsEmail"
+                    name="entry.1331474145"
+                    value={formData.leadsEmail}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="creditFinanceUrl" className="block text-sm font-medium text-gray-700">
+                    Credit/Finance URL
+                  </label>
+                  <input
+                    type="url"
+                    id="creditFinanceUrl"
+                    name="entry.606810967"
+                    value={formData.creditFinanceUrl}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-end">
+                <InteractiveHoverButton
+                  onClick={handleNext}
+                  color="blue"
+                  text="Next"
                 />
               </div>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Contact Phone <span className="text-red-500">*</span></label>
-              <input 
-                type="tel" 
-                name="dealerContactPhone"
-                value={formData.dealerContactPhone}
-                onChange={handleInputChange}
-                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Contact Email <span className="text-red-500">*</span></label>
-              <input 
-                type="email" 
-                name="dealerContactEmail"
-                value={formData.dealerContactEmail}
-                onChange={handleInputChange}
-                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-              />
-            </div>
-            <div className="flex justify-between">
-              <button type="button" onClick={handlePrevious} className="border border-gray-300 text-gray-700 py-2 px-4 rounded">Previous</button>
-              <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Submit</button>
-            </div>
-          </>
-        )}
-      </form>
-      {showTerms && (
-        <TermsConditionsDocument
-          onAccept={handleAcceptTerms}
-          onReject={handleRejectTerms}
-        />
-      )}
+            </>
+          ) : (
+            <>
+              <div className="space-y-6">
+                <div>
+                  <label htmlFor="dealerTaxId" className="block text-sm font-medium text-gray-700">
+                    Dealer Tax ID
+                  </label>
+                  <input
+                    type="file"
+                    id="dealerTaxId"
+                    name="entry.879856888"
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerLicense" className="block text-sm font-medium text-gray-700">
+                    Dealer License
+                  </label>
+                  <input
+                    type="file"
+                    id="dealerLicense"
+                    name="entry.520870026"
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerLogo" className="block text-sm font-medium text-gray-700">
+                    Dealer Logo
+                  </label>
+                  <input
+                    type="file"
+                    id="dealerLogo"
+                    name="entry.1146624318"
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerContactFirstName" className="block text-sm font-medium text-gray-700">
+                    Dealer Contact First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="dealerContactFirstName"
+                    name="entry.713110998"
+                    value={formData.dealerContactFirstName}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerContactLastName" className="block text-sm font-medium text-gray-700">
+                    Dealer Contact Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="dealerContactLastName"
+                    name="entry.879856888"
+                    value={formData.dealerContactLastName}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerContactPhone" className="block text-sm font-medium text-gray-700">
+                    Dealer Contact Phone
+                  </label>
+                  <input
+                    type="tel"
+                    id="dealerContactPhone"
+                    name="entry.520870026"
+                    value={formData.dealerContactPhone}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dealerContactEmail" className="block text-sm font-medium text-gray-700">
+                    Dealer Contact Email
+                  </label>
+                  <input
+                    type="email"
+                    id="dealerContactEmail"
+                    name="entry.1146624318"
+                    value={formData.dealerContactEmail}
+                    onChange={handleInputChange}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-between">
+                <InteractiveHoverButton
+                  onClick={handlePrevious}
+                  text="Previous"
+                />
+                <InteractiveHoverButton
+                  onClick={handleFormSubmit}
+                  color="blue"
+                  text="Submit"
+                />
+              </div>
+            </>
+          )}
+        </form>
+
+        <div className="mt-8 text-center text-sm text-gray-600">
+          <p>
+            By submitting this form, you agree to our{' '}
+            <Link href="/terms-and-conditions" className="text-blue-600 hover:text-blue-800">
+              Terms and Conditions
+            </Link>
+          </p>
+        </div>
+      </div>
     </div>
-    </>
   )
 }
 

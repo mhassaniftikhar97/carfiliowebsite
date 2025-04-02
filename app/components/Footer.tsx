@@ -34,6 +34,10 @@ const Footer = () => {
                 <p className="text-gray-500 mb-1">Phone Number</p>
                 <a href="tel: +1 (212) 281 3007" className="text-gray-900">+1 (212) 281 3007</a>
               </div>
+              <div>
+                <p className="text-gray-500 mb-1">Address</p>
+                <p className="text-gray-900">320 Northern Blvd Suite 21<br />Great Neck, NY 11021</p>
+              </div>
             </div>
           </div>
 
@@ -55,6 +59,19 @@ const Footer = () => {
 
         {/* Separator line */}
         <div className="mt-8 pt-4 border-t border-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-base text-gray-400">
+              © Carfilio. All Rights Reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link href="/terms-and-conditions" className="text-base text-gray-400 hover:text-gray-900">
+                Terms & Conditions
+              </Link>
+              <Link href="/privacy-policy" className="text-base text-gray-400 hover:text-gray-900">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
