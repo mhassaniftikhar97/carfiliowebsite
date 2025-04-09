@@ -64,8 +64,8 @@ const Footer = () => {
               © Carfilio. All Rights Reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/terms-and-conditions" className="text-base text-gray-400 hover:text-gray-900">
-                Terms & Conditions
+              <Link href="/terms" className="text-base text-gray-400 hover:text-gray-900">
+                Terms
               </Link>
               <Link href="/privacy-policy" className="text-base text-gray-400 hover:text-gray-900">
                 Privacy Policy
