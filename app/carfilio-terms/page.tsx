@@ -3,11 +3,14 @@ import Header from '../components/Header'
 
 const TermsAndConditions = () => {
   return (
-    <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-center py-16 px-4 bg-white">
       <Header />
-      <div className="max-w-[85%] flex items-center justify-center flex-col mx-auto mt-10 xl:mt-24 ">
-      {/* Section 2: Definitions */}
-      <section className="mb-8">
+      <div className="max-w-4xl xl:mt-24 mt-10 w-full">
+        <h1 className="text-4xl font-bold text-center mb-2">Terms and Conditions</h1>
+        <p className="text-center text-gray-600 mb-8">Effective Date: April 11, 2025</p>
+        
+        {/* Section 2: Definitions */}
+        <div className="mb-8">
         <h2 className="text-2xl font-bold text-gray-900 border-b pb-2 mb-6">
           2. DEFINITIONS
         </h2>
@@ -354,7 +357,7 @@ const TermsAndConditions = () => {
             </dd>
           </div>
         </dl>
-      </section>
+      </div>
 
       {/* Section 4: Use Restrictions */}
       <section className="mb-8">
@@ -714,9 +717,8 @@ const TermsAndConditions = () => {
        </section>
 
     </div>
-      
-    </div>
+  </div>
   )
 }
 
-export default TermsAndConditions 
+export default TermsAndConditions
