@@ -67,7 +67,7 @@ const Footer = () => {
             <Link href="/terms-of-use" className="text-base text-gray-400 hover:text-gray-900">
                Terms Of Use
               </Link>
-              <Link href="/carfilio-terms" className="text-base text-gray-400 hover:text-gray-900">
+              <Link href="/terms" className="text-base text-gray-400 hover:text-gray-900">
                 Carfilio Terms
               </Link>
               <Link href="/privacy-policy" className="text-base text-gray-400 hover:text-gray-900">
