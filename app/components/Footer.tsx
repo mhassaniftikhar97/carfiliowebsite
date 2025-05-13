@@ -7,7 +7,7 @@ import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-b
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white py-8">
+    <footer className="w-full bg-white pt-8">
       <div className="w-[90%] mx-auto px-6">
         {/* Main content */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
@@ -74,9 +74,12 @@ const Footer = () => {
                 Privacy Policy
               </Link>
             </div>
-          </div>
+          </div>  
         </div>
       </div>
+      <div className="items-center mt-7 propBar">
+            <p className="text-base text-gray-400 mt-5">This software is the proprietary intellectual property of Carfilio and is subject to pending patent rights.</p>
+            </div>
     </footer>
   )
 }

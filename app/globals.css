@@ -165,4 +165,11 @@
   }
 }
 
+/* CUSTOM STYLES */
+
+.propBar {
+  background: #1c4fd8;
+  color: #FFF !important;
+  padding: 7px;
+}
 
