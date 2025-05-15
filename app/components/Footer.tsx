@@ -77,8 +77,8 @@ const Footer = () => {
           </div>  
         </div>
       </div>
-      <div className="items-center mt-7 propBar">
-            <p className="text-base text-white-400 mt-1 text-center">This software is the proprietary intellectual property of Carfilio and is subject to pending patent rights.</p>
+      <div className="items-center mt-7 p-2 bg-blue-700">
+            <p className="text-base text-white mt-1 text-center">This software is the proprietary intellectual property of Carfilio and is subject to pending patent rights.</p>
             </div>
     </footer>
   )
