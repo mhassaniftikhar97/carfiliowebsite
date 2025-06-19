@@ -36,7 +36,10 @@ export default function Home() {
           <BentoSection />
         </div>
       </div>
-      <div id="reviews" className="py-10 xl:py-36 flex flex-col gap-5 items-center justify-center">
+          <div className="items-center mt-12 p-2 bg-blue-700">
+            <p className="text-base text-white mt-1 text-center">This software is the proprietary intellectual property of Carfilio and is subject to pending patent rights.</p>
+            </div>
+      <div id="reviews" className="py-10 xl:py-12 flex flex-col gap-5 items-center justify-center">
         <div className="text-center w-[85%]">
           <h3 className="text-5xl text-black font-medium tracking-tighter">Here&apos;s What Our Clients Say About Us</h3>
           <p className="text-xl text-black tracking-tighter mt-3">Carfilio is transforming the way dealerships connect with customers—seamless, efficient, and built for success. Our clients can&apos;t stop raving about the impact it&apos;s had on their sales and referrals!</p>
