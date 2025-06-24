@@ -251,7 +251,7 @@ const Page = () => {
                 onChange={handleInputChange}
                 className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
               />
-              <small>You agree to receive automated transaction messages. Terms and Privacy can be found at carfilio.com/privacy-policy/. You may receive up to 5 msg/mo. Txt and data rates apply. Reply STOP to end or HELP for help.</small>
+              <small><input type="checkbox" name="smsOpt" value="yes"/>You agree to receive automated transaction messages. Terms and Privacy can be found at carfilio.com/privacy-policy/. You may receive up to 5 msg/mo. Txt and data rates apply. Reply STOP to end or HELP for help.</small>
             </div>
             <div className="flex justify-between">
               <button type="button" onClick={handlePrevious} className="border border-gray-300 text-gray-700 py-2 px-4 rounded">Previous</button>
