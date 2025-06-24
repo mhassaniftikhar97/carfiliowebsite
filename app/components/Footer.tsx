@@ -8,6 +8,7 @@ import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-b
 const Footer = () => {
   return (
     <footer className="w-full bg-white pt-8">
+      
       <div className="w-[90%] mx-auto px-6">
         {/* Main content */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
@@ -77,9 +78,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146414530.js"></script>
-<!-- End of HubSpot Embed Code -->
+
     </footer>
     
   )
