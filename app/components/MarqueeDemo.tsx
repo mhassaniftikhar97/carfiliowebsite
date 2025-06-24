@@ -4,26 +4,26 @@ import Image from 'next/image';
 
 const reviews = [
   {
-    name: "Syosset Motors",
-    username: "@syossetmotors",
+    name: "Victory Mitsubishi",
+    username: "@victory.mitsubishi",
     body: "Carfilio is a total game-changer. We've already closed 11 referral deals in our first 60 days, and they are the easiest sales we have ever made ",
     img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "Hillside Leasing",
-    username: "@hillsideleasing",
+    name: "Power Motors NYC",
+    username: "@powermotorsnyc",
     body: "We cut our ad spend by 40% last month because Carfilio started bringing in organic leads that actually converted",
     img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "Siller Motors",
-    username: "@sillermotors",
+    name: "Elite Mitsubishi",
+    username: "@elite_mitsubishi",
     body: "We closed a $40K SUV deal from a customer referral—no ad budget, no chasing. Carfilio paid for itself in one day",
     img: "https://avatar.vercel.sh/john",
   },
   {
-    name: "Syosset Motors",
-    username: "@syossetmotors",
+    name: "Big City Mitsubishi",
+    username: "@bigcitymitsubishi",
     body: "Carfilio is a total game-changer. We've already closed 11 referral deals in our first 60 days, and they are the easiest sales we have ever made ",
     img: "https://avatar.vercel.sh/jack",
   },
