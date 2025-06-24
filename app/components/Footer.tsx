@@ -76,10 +76,14 @@ const Footer = () => {
             </div>
           </div>  
         </div>
-      </div>
-        <!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146414530.js"></script>
-<!-- End of HubSpot Embed Code -->
+{/* HubSpot Embed Code */}
+      <script 
+        type="text/javascript" 
+        id="hs-script-loader" 
+        async 
+        defer 
+        src="//js-eu1.hs-scripts.com/146414530.js"
+      />
     </footer>
     
   )
