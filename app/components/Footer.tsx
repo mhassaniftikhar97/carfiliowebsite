@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button'
+  import React from 'react'
+  import Image from 'next/image'
+  import Link from 'next/link'
+  import Script from 'next/script'
+  import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button'
 
 const Footer = () => {
   return (
@@ -41,21 +42,23 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Right side - Get started */}
-          <div className="space-y-6">
-            <div className="text-right">
-              <h2 className="text-2xl font-medium mb-3">Reimagining the future of<br />affiliate marketing</h2>
-              <div className="flex gap-4 justify-end">
-                <InteractiveHoverButton 
-                  route="https://calendly.com/carfilio/30min" 
-                  text="Get A Demo" 
-                  color="blue"
-                />
-                <InteractiveHoverButton text="Login" color="dark-blue" route="https://app.carfilio.com"/>
+            {/* Right side - Get started */}
+            <div className="space-y-6">
+              <div className="text-right">
+                <h2 className="text-2xl font-medium mb-3">Reimagining the future of<br
+  />affiliate marketing</h2>
+                <div className="flex gap-4 justify-end">
+                  <InteractiveHoverButton
+                    route="https://calendly.com/carfilio/30min"
+                    text="Get A Demo"
+                    color="blue"
+                  />
+                  <InteractiveHoverButton text="Login" color="dark-blue"
+  route="https://app.carfilio.com"/>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
         {/* Separator line */}
         <div className="mt-8 pt-4 border-t border-gray-200">
@@ -89,4 +92,4 @@ const Footer = () => {
   )
 }
 
-export default Footer 
+  export default Footer
