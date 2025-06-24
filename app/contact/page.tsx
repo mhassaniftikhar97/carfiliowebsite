@@ -204,21 +204,7 @@ const Page = () => {
                 className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
               />
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Tax ID <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer License <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Logo <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
+          
             <button type="button" onClick={handleNext} className="bg-blue-500 text-white py-2 px-4 rounded">Next</button>
           </>
         )}
