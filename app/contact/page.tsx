@@ -19,6 +19,7 @@ const Page = () => {
     dealerContactFirstName: '',
     dealerContactLastName: '',
     dealerContactPhone: '',
+    dealerContactSMS: '',
     dealerContactEmail: ''
   })
 
@@ -57,7 +58,7 @@ const Page = () => {
     params.append('entry.879856888', formData.dealerContactLastName)
     params.append('entry.520870026', formData.dealerContactPhone)
     params.append('entry.1146624318', formData.dealerContactEmail)
-
+    params.append('entry.1146624318', formData.dealerContactSMS)
     // Submit the form data
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSc3vGoTkPOVE9MYtTy6Jr8o3aC2TMicb_06zyQDvAbGKRE1qA/formResponse?', {
       method: 'POST',
@@ -85,6 +86,7 @@ const Page = () => {
         dealerContactFirstName: '',
         dealerContactLastName: '',
         dealerContactPhone: '',
+        dealerContactSMS: '',
         dealerContactEmail: ''
       })
       setStep(1)
@@ -204,21 +206,7 @@ const Page = () => {
                 className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
               />
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Tax ID <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer License <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700">Dealer Logo <span className="text-red-500">*</span></label>
-              <input type="file" className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <p className="text-sm text-gray-500">Max. file size: 256 MB.</p>
-            </div>
+          
             <button type="button" onClick={handleNext} className="bg-blue-500 text-white py-2 px-4 rounded">Next</button>
           </>
         )}
@@ -247,6 +235,16 @@ const Page = () => {
               </div>
             </div>
             <div className="mb-4">
+              <label className="block text-gray-700">Dealer Contact Email <span className="text-red-500">*</span></label>
+              <input 
+                type="email" 
+                name="dealerContactEmail"
+                value={formData.dealerContactEmail}
+                onChange={handleInputChange}
+                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              />
+            </div>
+            <div className="mb-4">
               <label className="block text-gray-700">Dealer Contact Phone <span className="text-red-500">*</span></label>
               <input 
                 type="tel" 
@@ -257,15 +255,15 @@ const Page = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700">Dealer Contact Email <span className="text-red-500">*</span></label>
-              <input 
-                type="email" 
-                name="dealerContactEmail"
-                value={formData.dealerContactEmail}
+               <input 
+                type="checkbox" 
+                name="dealerContactSMS"
+                value={formData.dealerContactSMS}
                 onChange={handleInputChange}
-                className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                className="border rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
               />
-            </div>
+              <small> Disclaimer: You agree to receive automated Transactional messages. Terms and Privacy Policy can be found at carfilio.com/privacy-policy/.
+                You may receive up to 5 msgs/mo. Text and data rates may apply. Reply STOP to end or HELP for help. Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.</small></div>
             <div className="flex justify-between">
               <button type="button" onClick={handlePrevious} className="border border-gray-300 text-gray-700 py-2 px-4 rounded">Previous</button>
               <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Submit</button>
