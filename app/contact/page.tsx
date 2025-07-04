@@ -263,7 +263,7 @@ const Page = () => {
                 className="border rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
               />
               <small> Disclaimer: You agree to receive automated Transactional messages. Terms and Privacy Policy can be found at carfilio.com/privacy-policy/.
-                You may receive up to 5 msgs/mo. Text and data rates may apply. Reply STOP to end or HELP for help. Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.</small></div>
+                You may receive up to 5 msgs/mo. Text and data rates may apply. Reply STOP to end or HELP for help. Message frequency may vary. Standard message and data rates may apply. Reply STOP to opt out. Reply HELP for assistance. Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.</small></div>
             <div className="flex justify-between">
               <button type="button" onClick={handlePrevious} className="border border-gray-300 text-gray-700 py-2 px-4 rounded">Previous</button>
               <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Submit</button>
