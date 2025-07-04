@@ -20,6 +20,7 @@ const Page = () => {
     dealerContactLastName: '',
     dealerContactPhone: '',
     dealerContactSMS: '',
+    dealerContactSMS1: '',
     dealerContactEmail: ''
   })
 
@@ -59,6 +60,7 @@ const Page = () => {
     params.append('entry.520870026', formData.dealerContactPhone)
     params.append('entry.1146624318', formData.dealerContactEmail)
     params.append('entry.1146624318', formData.dealerContactSMS)
+    params.append('entry.1146624318', formData.dealerContactSMS1)
     // Submit the form data
     fetch('https://docs.google.com/forms/d/e/1FAIpQLSc3vGoTkPOVE9MYtTy6Jr8o3aC2TMicb_06zyQDvAbGKRE1qA/formResponse?', {
       method: 'POST',
@@ -87,6 +89,7 @@ const Page = () => {
         dealerContactLastName: '',
         dealerContactPhone: '',
         dealerContactSMS: '',
+        dealerContactSMS1: '',
         dealerContactEmail: ''
       })
       setStep(1)
@@ -254,7 +257,7 @@ const Page = () => {
                 className="border rounded w-full py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
               />
             </div>
-            <div className="mb-4">
+                <div className="mb-4">
                <input 
                 type="checkbox" 
                 name="dealerContactSMS"
@@ -262,8 +265,21 @@ const Page = () => {
                 onChange={handleInputChange}
                 className="border rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
               />
-              <small> Disclaimer: You agree to receive automated Transactional messages. Terms and Privacy Policy can be found at carfilio.com/privacy-policy/.
-                You may receive up to 5 msgs/mo. Text and data rates may apply. Reply STOP to end or HELP for help. Message frequency may vary. Standard message and data rates may apply. Reply STOP to opt out. Reply HELP for assistance. Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.</small></div>
+              <small> I agree to your <a href="https://www.carfilio.com/website-terms-of-use" target='_blank'><u>terms of use</u></a> and <a href="https://www.carfilio.com/privacy-policy" target='_blank'><u>privacy agreement</u></a></small></div>
+               <div className="mb-4">
+               <input 
+                type="checkbox" 
+                name="dealerContactSMS1"
+                value={formData.dealerContactSMS1}
+                onChange={handleInputChange}
+                className="border rounded py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              />
+              <small> I consent to receive marketing and/or transactional SMS</small></div>
+            <div className="mb-4">
+              <small>Message frequency may vary. Standard message and data rates may apply. Reply STOP to opt out. Reply HELP for assistance. 
+                Your mobile information will not be sold or shared with third parties for promotional or marketing purpose.
+                </small>
+              </div>
             <div className="flex justify-between">
               <button type="button" onClick={handlePrevious} className="border border-gray-300 text-gray-700 py-2 px-4 rounded">Previous</button>
               <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Submit</button>
